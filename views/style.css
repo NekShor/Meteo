@@ -1,0 +1,360 @@
+body {
+    font-size:1.2em;
+    text-align: center;
+    margin:auto;
+    padding:0;
+    width:100%;
+    background-image: radial-gradient( circle 993px at 0.5% 50.5%,  rgba(137,171,245,0.37) 0%, rgba(245,247,252,1) 100.2% );
+}
+
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-top:50px;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    background-image: radial-gradient( circle 465px at -15.1% -25%,  rgba(17,130,193,1) 0%, rgba(67,166,238,1) 49%, rgba(126,203,244,1) 90.2% );
+}
+
+.highcharts-button {
+    display:none !important;
+}
+
+#logo {
+    width: 120px;
+    margin: 5px;
+    display: none;
+}
+
+#burger img {
+    width:155px;
+}
+
+header ul {
+    list-style-type: none;
+    display: none;
+}
+
+header ul li {
+    margin:15px;
+    font-size:2em;
+    font-weight: 700;
+}
+
+header ul li a:hover {
+    background-image: radial-gradient( circle farthest-corner at 3.1% 8.2%,  rgba(248,250,107,1) 0%, rgba(238,148,148,1) 98.2% );
+}
+
+header ul li a {
+    text-decoration: none;
+}
+
+
+main div {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+}
+
+.last-rec {
+    font-size: 4em;
+    font-weight: 700;
+    color:#FFB40F;
+    padding:35px;
+    margin-top:50px;
+}
+
+.last-rec-time {
+    font-size: 1.2em;
+    font-weight: 700;
+    color:#0a0a0a;
+    margin-top:35px;
+    width:85%;
+}
+
+.share {
+    width:200px;
+    border-radius: 80%;
+    height:120px;
+    font-size: 2.2em;
+    margin-top:50px;
+    margin-bottom:35px;
+    background-image: radial-gradient( circle 465px at -15.1% -25%,  rgba(17,130,193,1) 0%, rgba(67,166,238,1) 49%, rgba(126,203,244,1) 90.2% );
+}
+
+.share:hover{
+    
+    background-image: radial-gradient( circle farthest-corner at 3.1% 8.2%,  rgba(248,250,107,1) 0%, rgba(238,148,148,1) 98.2% );
+}
+
+figure {
+    width:75%;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background-image: radial-gradient( circle 465px at -15.1% -25%, rgba(17,130,193,1) 0%, rgba(67,166,238,1) 49%, rgba(126,203,244,1) 90.2% );
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+    padding: 30px 0;
+    font-size: 2em;
+}
+
+#menu li:hover {
+    
+    background-image: radial-gradient( circle farthest-corner at 3.1% 8.2%,  rgba(248,250,107,1) 0%, rgba(238,148,148,1) 98.2% );
+}
+
+#menuToggle input:checked ~ ul
+{
+    transform: none;
+}
+
+.rideau {
+    content:"";
+    height:40px;
+    width: 100%;
+    background-image: radial-gradient( circle farthest-corner at 3.1% 8.2%,  rgba(248,250,107,1) 0%, rgba(238,148,148,1) 98.2% );
+}
+
+form {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form input {
+    width:30%;
+    height: 50px;
+    align-items: center;
+    margin:10px auto;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.subform {
+    background-image: radial-gradient( circle 465px at -15.1% -25%,  rgba(17,130,193,1) 0%, rgba(67,166,238,1) 49%, rgba(126,203,244,1) 90.2% );
+}
+
+@media screen and (max-device-width:300px) {
+
+    body {
+        font-size: 0.8em;
+    }
+
+    #burger {
+        width:100%;
+        height:100px;
+        padding:0;
+    }
+
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1280px) {
+
+    header {
+        display:flex;
+        width:100%;
+        margin:auto;
+        padding:0;
+        justify-content: space-around
+    }
+
+    nav {
+        display:none;
+    }
+    
+
+    header ul {
+        display:flex;
+        justify-content: space-between;
+        width:100%;
+    }
+
+    main #temperature, main #humidite {
+        display:flex;
+        flex-direction: row;
+        align-items:baseline;
+    }
+
+}
+
+@media screen and (min-device-width: 1280px) {
+
+    header {
+        display:flex;
+        width:100%;
+        margin:auto;
+        padding:0;
+        justify-content: space-around;
+    }
+
+    nav {
+        display:none;
+    }
+    
+
+    header ul {
+        display:flex;
+    }
+
+    #logo {
+        display:block;
+    }
+    
+    body {
+        
+        background-color:lightgrey;
+    }
+
+    main {
+        width:100%;
+        margin:auto;
+        text-align: center;
+    }
+    
+    main #temperature, main #humidite {
+        display:flex;
+        flex-direction: row;
+        align-items:baseline;
+        justify-content: space-around;
+    }
+}

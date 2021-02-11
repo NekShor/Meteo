@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Cube l'internet des objets</title>
+        <meta charset="utf-8"/>
+        <link href="style.css" rel="stylesheet">
+
+
+
+
+
+        <style>
+            *{
+                margin: 0; padding: 0;
+                box-sizing: border-box;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            }
+        
+            body{
+                height: 100vh;
+                overflow-x: hidden;
+                
+            }
+        
+            #zone{
+                top: 0;
+                left: 0;
+                position: fixed;
+                overflow: hidden;
+                z-index: -5;
+                
+            }
+        
+            #neige{
+                position: absolute;
+                pointer-events: none;
+                animation: animate 5s linear infinite;
+                z-index: -100;
+            }
+
+            #neige img{
+                z-index: -100;
+
+            }
+        
+            @keyframes animate {
+                0%{
+                    transform: scale(0) translateY(0) rotate(0deg);
+                    opacity: 0;
+        
+                }
+                10%{
+                    opacity: 1;
+                }
+                90%{
+                    opacity: 1;
+                }
+        
+                100%{
+                    transform: scale(1) translateY(500%) rotate(360deg);
+                    opacity: 0;
+        
+                }
+                
+            }
+
+
+
+
+
+
+
+            #fire{
+                position: absolute;
+                pointer-events: none;
+                animation: animatefire 5s linear infinite;
+                z-index: -100;
+            }
+
+            #fire img{
+                z-index: -100;
+
+            }
+        
+            @keyframes animatefire {
+                0%{
+                    transform: scale(0) translateY(0) rotate(0deg);
+                    opacity: 1;
+        
+                }
+                10%{
+                    opacity: 1;
+                    transform: scale(1) translateY(-5%) rotate(0deg);
+
+                }
+                25%{
+                    opacity: 1;
+                    transform: scale(0.8) translateY(-12%) rotate(0deg);
+
+                }
+
+                50%{
+                    opacity: 1;
+                    transform: scale(1.2) translateY(-25%) rotate(0deg);
+
+                }
+                75%{
+                    opacity: 1;
+                    transform: scale(0.9) translateY(-37%) rotate(0deg);
+
+                }
+                
+                90%{
+                    opacity: 1;
+                    transform: scale(1) translateY(-45%) rotate(0deg);
+
+                }
+        
+                100%{
+                    transform: scale(1.3) translateY(-50%) rotate(0deg);
+                    opacity: 1;
+        
+                }
+                
+            }
+
+
+
+
+
+        
+            span img{
+                height: 100%;
+            }
+        
+        </style>
+
+
+
+
+
+
+
+
+
+    </head>
+    <body>
+        <header>
+            <img alt="logo petit" id="logo" src="img/1521027893877.png">
+            <ul>
+                <li>
+                    <a href="index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="map.html">Carte des sondes</a>
+                </li>
+                <li>
+                    <a href="list.html">Liste du materiel</a>
+                </li>
+                <li>
+                    <a href="api.html">API</a>
+                </li>
+            </ul>
+        </header>
+        <nav role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox" />
+              
+              <span></span>
+              <span></span>
+              <span></span>
+              
+              <ul id="menu">
+                <a href="index.html"><li>Accueil</li></a>
+                <a href="map.html"><li>Carte des sondes</li></a>
+                <a href="list.html"><li>Liste du materiel</li></a>
+                <a href="api.html"><li>API</li></a>
+              </ul>
+            </div>
+          </nav>
+
+        <main>
+            <div class="rideau"></div>
+            <h1>Données de températures et d'humidités</h1>
+            <div id="temperature">
+                <div style="width:65%">
+                    <h2>Graphique des températures</h2>
+                    <figure class="highcharts-figure">
+                        <div id="container" style="width:100%;"></div>
+                        <p class="highcharts-description">
+                            Ce graphique nous montre l'évolution des températures de la semaine
+                        </p>
+                    </figure>
+                </div>
+                <div style="width:35%;">
+                    <h2>Dernier niveau de température enregistré</h2>
+                    <span class="last-rec" id="last-rec-temp">En attente</span>
+                    <span class="last-rec-time" id="last-rec-time-temp">Time temp</span>
+                    <!-- <button class="share">SHARE</button> -->
+                </div>
+            </div>
+            <div class="rideau"></div>
+            <div id="humidite">
+                <div style="width:65%">
+                <h2>Graphique d'humidité</h2>
+                    <figure class="highcharts-figure">
+                        <div id="container2" style="width:100%;"></div>
+                        <p class="highcharts-description">
+                            Ce graphique nous montre l'évolution de l'humidité de la semaine
+                        </p>
+                    </figure>  
+                </div>
+                <div style="width:35%";>
+                    <h2>Dernier niveau d'humidité enregistré</h2>
+                    <span class="last-rec" id="last-rec-hum">En attente</span>
+                    <span class="last-rec-time" id="last-rec-time-hum">Time hum</span>
+                    <!-- <button class="share">SHARE</button> -->
+                </div>
+            </div>
+            <div class="rideau"></div>
+        </main>
+
+        <zone id="zone">
+            
+        </zone>
+        
+
+
+    </body>
+
+    <script src="lib/jquery-3.5.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="index.js"></script>
+    <script>
+
+        var temp = document.getElementById("last-rec-temp").innerHTML
+    
+        var taille = document.body.scrollHeight
+        var taille2 = document.body.scrollWidth
+
+        document.getElementById('zone').style.height = taille + "px";
+        document.getElementById('zone').style.width = taille2 + "px";
+
+        const color = [
+                'red',
+                'blue',
+                'green', 
+                'white'
+            ]
+
+        function create(){
+            
+                const zone = document.querySelector('zone')
+                const obj = document.createElement('span')
+                const img = document.createElement('img')
+                obj.setAttribute('id', 'neige')
+
+                var size = Math.random() * 40
+
+
+                obj.style.width = size + 5 + 'px'
+                obj.style.height = size + 5 + 'px'
+
+
+                obj.style.top = Math.random() * innerHeight - 100 + 'px'
+                obj.style.left = Math.random() * innerWidth + 'px'
+
+                const bg = color[Math.floor(Math.random() * color.length)]
+
+                // obj.style.background = bg
+
+                zone.appendChild(obj)
+                obj.appendChild(img)
+                img.setAttribute('src', "/img/flocon3.png")
+
+
+                setTimeout(() => {
+                    obj.remove()
+                }, 5000);
+            
+        }
+
+        setInterval(() => {
+            if(temp[0] < 0){
+
+                create()
+            }
+            
+            if(temp[0] > 30){
+                createfire()
+            }
+
+
+        }, 50);
+
+
+        function createfire(){
+            
+                const zone = document.querySelector('zone')
+                const obj = document.createElement('span')
+                const img = document.createElement('img')
+                obj.setAttribute('id', 'fire')
+
+
+                var size = Math.random() * 40
+
+
+                obj.style.width = size + 5 + 'px'
+                obj.style.height = size + 5 + 'px'
+
+
+                obj.style.top = Math.random() * innerHeight - 100 + 'px'
+                obj.style.left = Math.random() * innerWidth + 'px'
+
+                const bg = color[Math.floor(Math.random() * color.length)]
+
+                // obj.style.background = bg
+
+                zone.appendChild(obj)
+                obj.appendChild(img)
+                img.setAttribute('src', "/img/flamme.png")
+
+
+                setTimeout(() => {
+                    obj.remove()
+                }, 5000);
+            
+        }
+
+
+    </script>
+</html>

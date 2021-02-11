@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <style>
+            p,
+            label {
+                font: 1rem 'Fira Sans', sans-serif;
+            }
+
+            input {
+                margin: .4rem;
+            }
+
+        </style>
+        <title>Cube l'internet des objets</title>
+        <meta charset="utf-8"/>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body class="testbg">
+
+        <header>
+            <img alt="logo petit" id="logo" src="img/1521027893877.png">
+            <ul>
+                <li>
+                    <a href="index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="map.html">Carte des sondes</a>
+                </li>
+                <li>
+                    <a href="list.html">Liste du matériel</a>
+                </li>
+            </ul>
+        </header>
+        <nav role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox" />
+              
+              <span></span>
+              <span></span>
+              <span></span>
+              
+              <ul id="menu">
+                <a href="index.html"><li>Accueil</li></a>
+                <a href="map.html"><li>Carte des sondes</li></a>
+                <a href="list.html"><li>Liste du matériel</li></a>
+              </ul>
+            </div>
+          </nav>
+
+        <main class="bodyform">
+            <div class="rideau"></div>
+            <form action="/capteur" method="POST" name="INSERT">
+                <h2>INSERT</h2>
+
+                <input type="text" name="temperature" placeholder="Temperature" >
+
+              
+                <input type="text" name="humidite" placeholder="Humidité" >
+                <input type="password" placeholder="Mot de passe" name="motdepasse" value="Azerty1" style="display: none;">
+                <input type="submit" class="subform">
+
+            </form>
+            <div class="rideau"></div>
+
+            <form action="/GetInfos" method="POST" name="SELECT">
+                <h2>SELECT</h2>
+
+                <input type="text" name="nombre" placeholder="Nombre" >
+                <input type="submit" class="subform">
+
+            </form>
+            <div class="rideau"></div>
+
+            <form action="/ModifieData" method="POST" name="MODIFY">
+                <h2>UPDATE</h2>
+
+                <input type="text" name="id" placeholder="id">
+                <input type="text" name="temperature" placeholder="Temperature" >
+                <input type="text" name="humidite" placeholder="Humidité" >
+                <input type="password" placeholder="Mot de passe" name="motdepasse" value="Azerty1" style="display: none;">            
+                <input type="submit" class="subform">
+
+            </form>
+            <div class="rideau"></div>
+
+            <form action="/DeleteData" method="POST" name="DELETE">
+                <h2>DELETE</h2>
+
+                <input type="text" name="id" placeholder="id">
+                <input type="password" placeholder="Mot de passe" name="motdepasse" value="Azerty1" style="display: none;">            
+                <input type="submit" class="subform">
+
+            </form>
+            <div class="rideau"></div>
+        </main>
+    </body>
+</html>

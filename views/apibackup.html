@@ -1,0 +1,51 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+
+        <form action="/capteur" method="POST" name="INSERT">
+            <label>INSERT</label><br>
+
+            <input type="text" name="temperature" placeholder="Temperature" >
+            <input type="text" name="humidite" placeholder="Humidité" >
+            <input type="password" placeholder="Mot de passe" name="motdepasse" value="Azerty1" style="display: none;">
+            <input type="submit">
+
+        </form>
+
+        <br>
+
+        <form action="/GetInfos" method="POST" name="SELECT">
+            <label>SELECT</label><br>
+
+            <input type="text" name="nombre" placeholder="Nombre" >
+            <input type="submit">
+
+        </form>
+
+        <br>
+        <form action="/ModifieData" method="POST" name="MODIFY">
+            <label>UPDATE</label><br>
+
+            <input type="text" name="id" placeholder="id">
+            <input type="text" name="temperature" placeholder="Temperature" >
+            <input type="text" name="humidite" placeholder="Humidité" >
+            <input type="password" placeholder="Mot de passe" name="motdepasse" value="Azerty1" style="display: none;">            
+            <input type="submit">
+
+        </form>
+        <br>
+
+        <form action="/DeleteData" method="POST" name="DELETE">
+            <label>DELETE</label><br>
+
+            <input type="text" name="id" placeholder="id">
+            <input type="password" placeholder="Mot de passe" name="motdepasse" value="Azerty1" style="display: none;">            
+            <input type="submit">
+
+        </form>
+
+    </body>
+</html>
